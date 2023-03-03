@@ -38,6 +38,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
+    z-index: 5;
 }
 .header__menu {
     display: flex;
@@ -130,5 +131,57 @@ body {
     background-image: url(../images/about-bg.svg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center center;
     height: 100vh;
+    padding-top: calc(96px + 58px);
+}
+.about__texts {
+    max-width: 1000px;
+    margin-top: 100px;
+}
+.about__text {
+    position: relative;
+}
+.about__text::before {
+    position: absolute;
+    content: '';
+}
+.about__text-one {
+    padding-top: 23px;
+    padding-left: 27%;
+    max-width: calc(709px + 27%);
+}
+.about__text-one::before {
+    background-image: url(../images/about-line1.svg);
+    background-repeat: no-repeat;
+    top: 0;
+    left: 125px;
+    height: 22px;
+    max-width: 850px;
+    width: 120%;
+}
+.about__text-two {
+    margin-top: 73px;
+    padding-top: 23px;
+    padding-left: 41%;
+    width: calc(894px + 41%);
+}
+.about__text-two::before {
+    background-image: url(../images/about-line2.svg);
+    background-repeat: no-repeat;
+    top: 0;
+    left: 125px;
+    height: 22px;
+    max-width: 1178px;
+    width: 120%;
+}
+.about__text-three {
+
+    max-width: 985px;
+}
+
+
+
+@media (max-width: 1200px) {
+
 }
