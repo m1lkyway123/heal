@@ -33,7 +33,6 @@ body {
 
 
 .header {
-    margin-top: 23px;
     position: fixed;
     top: 0;
     left: 0;
@@ -45,6 +44,7 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 75px;
+    margin-top: 23px;
 }
 .header__menu-items {
     display: flex;
@@ -59,6 +59,39 @@ body {
 }
 .header__search-text {
     margin-right: 20px;
+}
+.header__burger-btn {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    z-index: 2;
+}
+.header__burger-btn span {
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background-color: #00873E;
+    left: 5px;
+    top: 20px;
+    transition: transform .5s, opacity .5s;
+}
+.header__burger-btn span:nth-child(1) {
+    transform: translateY(-10px);
+}
+.header__burger-btn span:nth-child(3) {
+    transform: translateY(10px);
+}
+.header.open .header__burger-btn span:nth-child(1) {
+    transform: translateY(0) rotate(45deg);
+}
+.header.open .header__burger-btn span:nth-child(2) {
+    opacity: 0;
+}
+.header.open .header__burger-btn span:nth-child(3) {
+    transform: translateY(0) rotate(-45deg);
 }
 
 .heal {
@@ -155,6 +188,10 @@ body {
     margin-left: 491px;
 }
 
+.price {
+    padding-top: calc(98px + 58px);
+}
+
 
 
 @media (max-width: 1540px) {
@@ -187,7 +224,7 @@ body {
         left: 0;
         right: 0;
         margin: 0 auto;
-        width: 688px;
+        max-width: 688px;
         height: 3px;
         background-image: url(../images/line.svg);
         background-repeat: no-repeat;
@@ -207,11 +244,32 @@ body {
         max-width: 390px;
         width: 100%;
     }
+
+    .about {
+        padding-top: calc(66px + 58px);
+    }
+    .about__texts {
+        max-width: 100%;
+        margin-top: 60px;
+        font-size: 20px;
+    }
+    .about__text-one, .about__text-two {
+        margin: 0 auto 50px;
+        text-align: center;
+    }
+    .about__text-three {
+        margin: 0 auto 30px;
+        text-align: center;
+    }
 }
 
 
 
 @media (max-width: 900px) {
+    .title {
+        font-size: 50px;
+    }
+
     .header__menu {
         font-size: 16px;
     }
@@ -234,5 +292,127 @@ body {
         font-size: 16px;
         line-height: 21px;
         margin: 0 auto 50px;
-    }    
+    }
+
+    .about {
+        padding-top: calc(74px + 58px);
+    }
+    .about__texts {
+        margin: 40px 20px;
+        font-size: 20px;
+    }
+    .about__text-one,
+    .about__text-two {
+        margin: 0 auto 60px;
+    }
+    .about__text-three {
+        margin: 0 auto;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .header__burger-btn {
+        display: block;
+    }
+    .header__menu-items {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: #E2F2E7;
+        display: block;
+        padding: 25vh 20px 20px;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        transition: opacity .5s;
+        opacity: 0;
+        pointer-events: none;
+    }
+    .header__menu-list + .header__menu-list {
+        margin-left: 0;
+    }
+    .header__menu-list a {
+        display: block;
+        padding: 10px 0;
+    }
+
+    .header.open .header__menu-items {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .heal__inner::before {
+        background-image: none;
+        width: 100%;
+    }
+
+    .about__texts {
+        font-size: 16px;
+    }
+}
+
+
+
+@media (max-width: 560px) {
+    .title {
+        line-height: 60px;
+    }
+
+    .header__menu {
+        margin-top: 15px;
+    }
+
+    .about {
+        padding-top: calc(30px + 58px);
+    }
+    .about__text-one, .about__text-two {
+        margin: 0 auto 25px;
+    }
+}
+
+
+
+@media (max-width: 426px) {
+    .title {
+        font-size: 45px;
+    }
+
+    .header__menu-list a {
+        margin: 10px 0;
+    }
+
+    .header__search-text {
+        margin-right: 10px;
+        font-size: 15px;
+    }
+    .header__search-img {
+        height: 20px;
+    }
+
+    .heal__inner {
+        padding-top: 55px;
+        display: flex;
+        height: 90vh;
+        flex-direction: column;
+    }
+    .heal__title {
+        font-size: 55px;
+        line-height: 100px;
+    }
+    .heal__subtitle {
+        font-size: 25px;
+        margin-bottom: 15px;
+    }
+    .heal__link {
+        font-size: 20px;
+        padding: 10px;
+        margin: auto;
+    }
+
+    .about__texts {
+        margin: 30px 15px;
+        line-height: 22px;
+    }
 }
